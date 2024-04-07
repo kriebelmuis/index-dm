@@ -1,4 +1,4 @@
-# Index Development
+# Index Distrobution Manager
 
 ## Credits
 - librqbit: bittorrent

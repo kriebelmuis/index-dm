@@ -1,8 +1,8 @@
 [package]
 name = "app"
 version = "0.1.0"
-description = "A Tauri App"
-authors = ["bob"]
+description = ""
+authors = [""]
 license = ""
 repository = ""
 default-run = "app"
@@ -21,6 +21,9 @@ tauri = { version = "1.6.1", features = ["api-all"] }
 # tokio
 tokio = { version = "1", features = ["full"] }
 mini-redis = "0.4"
+
+# anyhow
+anyhow = "1.0.81"
 
 # bt
 librqbit = "5.5.4"

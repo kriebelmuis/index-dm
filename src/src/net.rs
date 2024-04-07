@@ -1,13 +1,10 @@
-use crate::bt::{
-    
-};
 use anyhow::Context;
 use std::fs;
 use std::sync::Arc;
 use std::time::Duration;
 
 use librqbit::{
-	AddTorrent, AddTorrentOptions, AddTorrentResponse, ManagedTorrent, Session, SessionOptions,
+	AddTorrent, AddTorrentOptions, AddTorrentResponse, ManagedTorrent, Session,
 };
 
 #[tokio::main]
@@ -20,13 +17,7 @@ pub async fn start_torrent(magnet: &str) -> anyhow::Result<Arc<ManagedTorrent>> 
     };
 
     println!("creating session");
-    let session = Session::new(
-        dir.unwrap(),
-        Some(SessionOptions {
-            disable_dht: true,
-            ..Default::default()
-        }),
-    )
+    let session = Session::new(dir.unwrap()) // todo: request session opts in rqbit
     .await
     .context("error creating session")?;
 
