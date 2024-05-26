@@ -31,5 +31,8 @@ librqbit = "5.5.4"
 # ext
 winapi = { version = "0.3", features = ["winuser", "winbase"] }
 
+# patcher
+xdelta3 = "0.1.5"
+
 [features]
 custom-protocol = ["tauri/custom-protocol"]

@@ -2,6 +2,8 @@
 
 use std::thread;
 
+use config::Config;
+
 mod config;
 mod net;
 mod ext;
@@ -9,6 +11,17 @@ mod ext;
 #[tauri::command]
 fn authorize() -> bool {
     true
+}
+
+#[tauri::command]
+fn edit_config(mut config: Config, key: &str, value: serde_json::Value) -> bool {
+    config.edit(key.to_string(), value)
+    .is_ok()
+}
+
+#[tauri::command]
+fn get_config() -> Config {
+	config::new()
 }
 
 fn main() {
@@ -19,10 +32,9 @@ fn main() {
 	});
 
 	ext::init();
-	let _ = config::new();
 
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![authorize])
+        .invoke_handler(tauri::generate_handler![authorize, edit_config, get_config])
         .run(tauri::generate_context!())
         .expect("failed to run app");
 }

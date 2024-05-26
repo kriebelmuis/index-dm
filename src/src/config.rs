@@ -3,7 +3,6 @@ use std::{collections::HashMap, env, fs};
 use std::io::{Read, Write, Result};
 use serde::{Serialize, Deserialize};
 
-// Define the configuration struct
 #[derive(Serialize, Deserialize, Debug)]
 pub struct Config {
     pub opts: HashMap<String, serde_json::Value>,

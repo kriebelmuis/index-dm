@@ -1,11 +1,13 @@
-use anyhow::Context;
-use std::fs;
-use std::sync::Arc;
-use std::time::Duration;
+use std::{
+	fs, sync::Arc, time::Duration,
+};
 
 use librqbit::{
 	AddTorrent, AddTorrentOptions, AddTorrentResponse, ManagedTorrent, Session,
 };
+
+use anyhow::Context;
+
 
 #[tokio::main]
 pub async fn start_torrent(magnet: &str) -> anyhow::Result<Arc<ManagedTorrent>> {
